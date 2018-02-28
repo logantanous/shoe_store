@@ -2,9 +2,9 @@
 # ENV['RACK_ENV'] = 'test'
 
 require("sinatra/activerecord")
-require("recipe")
-require("ingredient")
-require("instruction")
-require("tag")
+require("recipes")
+require("ingredients")
+require("instructions")
+require("tags")
 require("rspec")
 require("pg")
