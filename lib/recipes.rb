@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  belongs_to :ingredients
-  belongs_to :tags
-  belongs_to :instructions
+  belongs_to :ingredient
+  belongs_to :tag
+  belongs_to :instruction
 end

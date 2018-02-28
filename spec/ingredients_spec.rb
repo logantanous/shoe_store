@@ -3,6 +3,6 @@ require('spec_helper')
 require('pry')
 require('pg')
 
-describe(Instruction) do
+describe(Ingredient) do
   it { should have_many(:recipes) }
 end
