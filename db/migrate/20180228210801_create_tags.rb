@@ -5,6 +5,6 @@ class CreateTags < ActiveRecord::Migration[5.1]
       t.column(:recipe_id, :integer)
 
       t.timestamps()
-end
+    end
   end
 end

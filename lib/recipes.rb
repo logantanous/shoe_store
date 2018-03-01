@@ -1,5 +1,10 @@
 class Recipe < ActiveRecord::Base
-  belongs_to :ingredient
-  belongs_to :tag
-  belongs_to :instruction
+  has_many :ingredientsrecipes
+  has_many :ingredients, through: :ingredientsrecipes
+
+  has_many :instructionsrecipes
+  has_many :instructions, through: :instructionsrecipes
+
+  has_many :tagsrecipes
+  has_many :tags, through: :tagsrecipes
 end

@@ -1,4 +1,5 @@
 class Ingredient < ActiveRecord::Base
-  has_many :recipes
-  has_many :instructions, :through => :recipes
+  # validates(:ingredient, {:presence => true})
+  has_many :ingredientsrecipes
+  has_many :recipes, through: :ingredientsrecipes
 end

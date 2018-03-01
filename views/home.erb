@@ -1,15 +1,33 @@
 <div class="container">
   <h1>Recipe for Disaster Box</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <form class="" action="/add" method="post">
-        <button type="submit" name="new_recipe" class="btn btn-info">Add a New Recipe</button>
-      </form>
+
+  <div class="header">
+    Add a Recipe
+    <form class="inline" action="/" method="post">
+      <input class="inline" type="text" name="recipe" id="ingredient" autocomplete="off">
+      <button type="submit" name="new_recipe" class="btn btn-info">Add a New Recipe</button>
+    </form>
+  </div>
+
+  <div class="row bold">
+    <div class="col col-xs-10">
+      Recipes
     </div>
-    <div class="col-md-6">
-      <form class="" action="/recipe_list" method="post">
-        <button type="submit" name="button" class="btn btn-primary">Current Recipes</button>
-      </form>
+    <div class="col col-xs-2">
+      Remove
     </div>
   </div>
+  <% @recipes.each do |recipe| %>
+    <div class="row">
+      <div class="col col-xs-10">
+      <a href="/recipe/<%= recipe.id %>"><%=recipe.name%></a>  
+      </div>
+      <div class="col col-xs-2">
+        <form class="" action="/<%= recipe.id %>" method="post">
+          <input name="_method" type="hidden" value="delete">
+          <button class="delete" type="submit">x</button>
+        </form>
+      </div>
+    </div>
+  <% end %>
 </div>

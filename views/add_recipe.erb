@@ -1,10 +1,7 @@
-<h1>Add a New Recipe</h1>
+<h1>Add to <%= @recipe.name %> </h1>
 <div class="container">
   <div class="form-group">
-  <form class="" action="/add_recipe" method="post">
-    <label for="name">Recipe Name</label>
-    <input type="text" name="name">
-
+  <form class="" action="/add_recipe/<%= @recipe.id%>" method="post">
     <label for="message">Ingredients</label>
     <textarea name="ingredients" rows="50" cols="50" placeholder="shoulda coulda" style="height:100px;"></textarea>
 
