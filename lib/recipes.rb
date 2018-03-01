@@ -1,10 +1,6 @@
 class Recipe < ActiveRecord::Base
-  has_many :ingredientsrecipes
-  has_many :ingredients, through: :ingredientsrecipes
-
-  has_many :instructionsrecipes
-  has_many :instructions, through: :instructionsrecipes
-
-  has_many :tagsrecipes
-  has_many :tags, through: :tagsrecipes
+  validates(:name, :presence => true)
+  has_and_belongs_to_many :ingredients
+  has_and_belongs_to_many :instructions
+  has_and_belongs_to_many :tags
 end

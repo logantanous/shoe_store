@@ -1,18 +1,21 @@
 <h1>Add to <%= @recipe.name %> </h1>
 <div class="container">
   <div class="form-group">
-  <form class="" action="/add_recipe/<%= @recipe.id%>" method="post">
-    <label for="message">Ingredients</label>
-    <textarea name="ingredients" rows="50" cols="50" placeholder="shoulda coulda" style="height:100px;"></textarea>
-
-    <label for="message">Instructions</label>
-    <textarea name="instructions" rows="50" cols="50" placeholder="Enter instructions" style="height:100px;"></textarea>
-
-    <label for="tags">Tag</label>
-    <input type="text" name="tag">
-
-    <button type="submit" name="new_recipe" class="btn btn-info">Add a New Recipe</button>
-  </form>
+    <form class="" action="/add_recipe/<%= @recipe.id%>" method="post">
+      <label for="ingredients">Ingredients</label>
+      <input type="ingredients" name="" value="">
+      <button type="submit" class="btn btn-info">Add a New Recipe</button>
+    </form>
+    <form class="" action="/add_recipe/<%= @recipe.id%>" method="post">
+      <label for="instructions">Instructions</label>
+      <input type="instructions" name="instructions">
+      <button type="submit" class="btn btn-info">Add a New Recipe</button>
+    </form>
+    <form class="" action="/add_recipe/<%= @recipe.id%>" method="post">
+      <label for="tags">Tag</label>
+      <input type="text" name="tag">
+      <button type="submit" class="btn btn-info">Add a New Recipe</button>
+    </form>
   </div>
 </div>
 

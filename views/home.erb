@@ -20,7 +20,7 @@
   <% @recipes.each do |recipe| %>
     <div class="row">
       <div class="col col-xs-10">
-      <a href="/recipe/<%= recipe.id %>"><%=recipe.name%></a>  
+      <a href="/recipe/<%= recipe.id %>"><%=recipe.name%></a>
       </div>
       <div class="col col-xs-2">
         <form class="" action="/<%= recipe.id %>" method="post">

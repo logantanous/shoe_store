@@ -1,5 +1,3 @@
 class Tag < ActiveRecord::Base
-  # validates(:tag, {:presence => true})
-  has_many :tagsrecipes
-  has_many :recipes, through: :tagsrecipes
+  has_and_belongs_to_many :recipes
 end
