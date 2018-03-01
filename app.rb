@@ -45,8 +45,14 @@ end
 get('/add_recipe') do
   # @ingredient = Ingredient.all
   # @instruction = Instruction.all
-  # @recipe = Recipe.all
+  @recipe = Recipe.all
   # @tag = Tag.all
   @one_recipe
   erb(:recipe_list)
+end
+
+# display all recipes at that url using the list_recipes views
+post '/recipe_list' do
+  @recipe = Recipe.all
+  erb(:list_recipes)
 end
