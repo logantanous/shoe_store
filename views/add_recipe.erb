@@ -3,18 +3,28 @@
   <div class="form-group">
     <form class="" action="/add_recipe/<%= @recipe.id%>" method="post">
       <label for="ingredients">Ingredients</label>
-      <input type="ingredients" name="" value="">
-      <button type="submit" class="btn btn-info">Add a New Recipe</button>
+      <input type="ingredients" name="new_ingredient" value="">
+      <button type="submit" class="btn btn-info">Add a New Ingredient</button>
     </form>
+
+      <% @ingredients.each do |ingredient| %>
+        <%= ingredient.names %>
+      <% end %>
+
     <form class="" action="/add_recipe/<%= @recipe.id%>" method="post">
       <label for="instructions">Instructions</label>
       <input type="instructions" name="instructions">
-      <button type="submit" class="btn btn-info">Add a New Recipe</button>
+      <button type="submit" class="btn btn-info">Add a New Instruction</button>
     </form>
+<!-- 
+    <% @instructions.each do |instruction| %>
+      <%= instruction.description %>
+    <% end %> -->
+
     <form class="" action="/add_recipe/<%= @recipe.id%>" method="post">
       <label for="tags">Tag</label>
       <input type="text" name="tag">
-      <button type="submit" class="btn btn-info">Add a New Recipe</button>
+      <button type="submit" class="btn btn-info">Add a New Tag</button>
     </form>
   </div>
 </div>

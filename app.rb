@@ -26,14 +26,31 @@ end
 get('/recipe/:id') do
   @recipe = Recipe.find(params.fetch("id").to_i)
   @recipes = Recipe.all
+  @ingredients = Ingredient.all
+  @instructions = Instruction.all
+  # @tags = Tag.all
   erb(:add_recipe)
 end
 
-# # add new recipe button will go to /add and show add_recipe.erb page
-# # post('/add') do
-# #   erb(:add_recipe)
-# # end
-#
+post '/add_recipe/:id' do
+  @recipe = Recipe.find(params.fetch("id").to_i)
+  binding.pry
+  new_ingredient = Ingredient.new({:names => params['new_ingredient']})
+  @recipe.ingredient_id = new_ingredient.id
+  # binding.pry
+  # @ingredient_recipe = Ingredient_recipes.create({:recipe_id => @recipe.id, :ingredient_id => @ingredient.id})
+  # @ingredients = Ingredient.all
+  # @instructions = Instruction.all
+  # @tags = Tag.all
+  # @recipes = Recipe.all
+  erb(:add_recipe)
+end
+
+# add new recipe button will go to /add and show add_recipe.erb page
+post('/add') do
+  erb(:add_recipe)
+end
+
 # # subbmiting everything on /add and go to recipe_list
 # # POST TO /add_recipe url from the recipe_list
 # post('/add_recipe/:id') do
