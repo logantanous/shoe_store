@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
-  database: recipe_box
+  database: shoe_store
 
 test:
   adapter: postgresql
-  database: recipe_box_test
+  database: shoe_store_test
