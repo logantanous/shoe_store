@@ -23,7 +23,7 @@
 
 <h2><%= @store.name %> Brand</h2>
 <% if @store.brands.any?() %>
-    <% @store.brands.each() do |brand| %>
+    <% @store_brands.each() do |brand| %>
       <h3><%= brand.name%></h3>
     <% end %>
 <% end %>

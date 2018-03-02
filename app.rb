@@ -18,7 +18,7 @@ end
 
 post('/stores')do
   name = params[:title]
-  @store = Store.create({:name => name})
+  @store = Store.find_or_create_by({:name => name})
   @stores = Store.all
   erb(:stores)
 end
@@ -30,7 +30,7 @@ end
 
 post('/brands')do
   name = params[:title]
-  @brand = Brand.create({:name => name})
+  @brand = Brand.find_or_create_by({:name => name})
   @brands = Brand.all
   erb(:brand)
 end
@@ -42,7 +42,7 @@ end
 
 post('/shoes')do
   name = params[:title]
-  @shoe = Item.create({:name => name})
+  @shoe = Item.find_or_create_by({:name => name})
   @shoes = Item.all
   erb(:shoe)
 end
@@ -74,14 +74,16 @@ end
 
 post '/store/:id/view' do
   @store = Store.find(params.fetch("id").to_i)
-  @brands = Brand.all
   @stores = Store.all
+  @brands = Brand.all - @store.brands
+  @store_brands = @store.brands
   erb(:store)
 end
 
 get('/store/:id/view')do
   @store = Store.find(params.fetch("id").to_i())
   @brands = Brand.all - @store.brands
+  @store_brands = @store.brands
   erb(:store)
 end
 
@@ -93,5 +95,6 @@ patch '/store/:id/view' do
     @store.brands.push(new_brand)
   end
   @brands = Brand.all - @store.brands
+  @store_brands = @store.brands
   erb(:store)
 end

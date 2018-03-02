@@ -22,5 +22,7 @@ RSpec.configure do |config|
     DB.exec('DELETE FROM stores *;')
     DB.exec('DELETE FROM brands *;')
     DB.exec('DELETE FROM items *;')
+    DB.exec('DELETE FROM brands_items *;')
+    DB.exec('DELETE FROM brands_stores *;')
   end
 end
