@@ -5,7 +5,11 @@
     <% @stores.each() do |store| %>
       <div class="row">
         <div class="col-xs-4">
-          <li><a href="/store/<%=store.id%>"><%= store.name %></a></li>
+          <li>
+            <form action="/store/<%=store.id%>/view" method="post">
+              <button type="submit"><%= store.name %></button>
+            </form>
+          </li>
         </div>
         <div class="col-xs-5">
           <form action="/store/<%=store.id%>/edit" method="post">

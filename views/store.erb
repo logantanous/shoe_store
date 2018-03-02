@@ -1,11 +1,29 @@
-<% @stores.each() do |store| %>
-  <li><a href=""><%= store.name %></a></li>
+<h3>Store:</h3>
+<%=@store.name%>
+
+<h3>Add brands:</h3>
+
+<% if @brands.any?() %>
+  <form action="/store/<%= @store.id %>/view" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <div class="row">
+      <div class="col-md-12">
+        <% @brands.each() do |brand| %>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="brand_ids[]" value="<%= brand.id() %>"><%= brand.name%>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <button type="submit">Add Brands</button>
+  </form>
 <% end %>
 
-<!-- add store -->
-<div class="well">
-  <form action="/stores" method="post">
-      <input type="text" name="title" placeholder="ADD STORE">
-      <button type="submit" class="btn btn-success">ADD</button>
-  </form>
-</div>
+<h2><%= @store.name %> Brand</h2>
+<% if @store.brands.any?() %>
+    <% @store.brands.each() do |brand| %>
+      <h3><%= brand.name%></h3>
+    <% end %>
+<% end %>
