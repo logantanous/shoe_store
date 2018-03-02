@@ -1,4 +1,12 @@
-class Ingredient < ActiveRecord::Base
-  # validates(:ingredient, {:presence => true})
-  has_and_belongs_to_many :recipes
+class Store < ActiveRecord::Base
+  has_many :brands_stores # points to join table
+  has_many :brands, through: :brands_stores # links
+  # validates(:title, :presence => true)
+  # before_save(:downcase_title)
+
+# private
+#   def downcase_title
+#     self.title=(title().downcase)
+#   end
+
 end

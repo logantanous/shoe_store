@@ -4,10 +4,48 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 # home page
-# get('/') do
-#   @recipes = Recipe.all
-#   erb(:home)
-# end
+get('/') do
+  @stores = Store.all
+  @brands = Brand.all
+  @shoes = Item.all
+  erb(:home)
+end
+
+get '/stores' do
+  @stores = Store.all
+  erb(:store)
+end
+
+post('/stores')do
+  name = params[:title]
+  @store = Store.create({:name => name})
+  @stores = Store.all
+  erb(:store)
+end
+
+get '/brands' do
+  @brands = Brand.all
+  erb(:brand)
+end
+
+post('/brands')do
+  name = params[:title]
+  @brand = Brand.create({:name => name})
+  @brands = Brand.all
+  erb(:brand)
+end
+
+get '/shoes' do
+  @shoes = Item.all
+  erb(:shoe)
+end
+
+post('/shoes')do
+  name = params[:title]
+  @shoe = Item.create({:name => name})
+  @shoes = Item.all
+  erb(:shoe)
+end
 #
 # post('/') do
 #   new_recipe = params.fetch("recipe")

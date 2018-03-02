@@ -1,0 +1,11 @@
+<% @stores.each() do |store| %>
+  <li><a href=""><%= store.name %></a></li>
+<% end %>
+
+<!-- add store -->
+<div class="well">
+  <form action="/stores" method="post">
+      <input type="text" name="title" placeholder="ADD STORE">
+      <button type="submit" class="btn btn-success">ADD</button>
+  </form>
+</div>

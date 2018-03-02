@@ -1,0 +1,11 @@
+<% @shoes.each() do |shoe| %>
+  <li><a href=""><%= shoe.name %></a></li>
+<% end %>
+
+<!-- add store -->
+<div class="well">
+  <form action="/shoes" method="post">
+      <input type="text" name="title" placeholder="ADD SHOE">
+      <button type="submit" class="btn btn-success">ADD</button>
+  </form>
+</div>
