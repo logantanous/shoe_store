@@ -1,22 +1,32 @@
 <!--List everything and give the option to add each individual thing-->
 <div class="row">
-  <div class="col col-xs-4">
+  <div class="col col-xs-12">
     <h6>Stores</h6>
     <% @stores.each() do |store| %>
       <div class="row">
-        <div class="col-xs-6">
-          <li><a href=""><%= store.name %></a></li>
+        <div class="col-xs-4">
+          <li><a href="/store/<%=store.id%>"><%= store.name %></a></li>
+        </div>
+        <div class="col-xs-5">
+          <form action="/store/<%=store.id%>/edit" method="post">
+            <input name="_method" type="hidden" value="patch">
+            <input type="text" name="edit" placeholder="Change Store Name">
+            <button type="submit">Edit</button>
+          </form>
         </div>
         <div class="col-xs-3">
-          Edit
-        </div>
-        <div class="col-xs-3">
-          Delete
+          <form action="/store/<%=store.id%>/delete" method="post">
+            <input name="_method" type="hidden" value="delete">
+            <button type="submit">Delete</button>
+          </form>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="col col-xs-4">
+</div>
+<hr>
+<div class="row">
+  <div class="col col-xs-6">
     <h6>Brands</h6>
     <% @brands.each() do |brand| %>
       <div class="row">
@@ -26,7 +36,7 @@
       </div>
     <% end %>
   </div>
-  <div class="col col-xs-4">
+  <div class="col col-xs-6">
     <h6>Shoes</h6>
     <% @shoes.each() do |shoe| %>
       <div class="row">

@@ -46,6 +46,26 @@ post('/shoes')do
   @shoes = Item.all
   erb(:shoe)
 end
+
+delete '/store/:id/delete' do
+  @store = Store.find(params.fetch("id").to_i)
+  @store.delete
+  @stores = Store.all
+  @brands = Brand.all
+  @shoes = Item.all
+  erb(:home)
+end
+
+patch '/store/:id/edit' do
+  title = params.fetch("edit")
+  @stores = Store.find(params.fetch("id").to_i())
+  @stores.update({:name => title})
+  @stores = Store.all
+  @brands = Brand.all
+  @shoes = Item.all
+  erb(:home)
+end
+
 #
 # post('/') do
 #   new_recipe = params.fetch("recipe")
