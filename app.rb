@@ -7,7 +7,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 get('/') do
   @stores = Store.all
   @brands = Brand.all
-  @shoes = Item.all
+  # @shoes = Item.all
   erb(:home)
 end
 
@@ -18,33 +18,26 @@ end
 
 post('/stores')do
   name = params[:title]
-  @store = Store.find_or_create_by({:name => name})
+  if name != ""
+    @store = Store.find_or_create_by({:name => name.capitalize})
+  end
   @stores = Store.all
   erb(:stores)
 end
 
 get '/brands' do
   @brands = Brand.all
-  erb(:brand)
+  erb(:brands)
 end
 
 post('/brands')do
   name = params[:title]
-  @brand = Brand.find_or_create_by({:name => name})
+  price = params[:price]
+  if name != ""
+    @brand = Brand.find_or_create_by({:name => name.capitalize, :price => price})
+  end
   @brands = Brand.all
-  erb(:brand)
-end
-
-get '/shoes' do
-  @shoes = Item.all
-  erb(:shoe)
-end
-
-post('/shoes')do
-  name = params[:title]
-  @shoe = Item.find_or_create_by({:name => name})
-  @shoes = Item.all
-  erb(:shoe)
+  erb(:brands)
 end
 
 delete '/store/:id/delete' do
@@ -62,7 +55,7 @@ patch '/store/:id/edit' do
   @stores.update({:name => title})
   @stores = Store.all
   @brands = Brand.all
-  @shoes = Item.all
+  # @shoes = Item.all
   erb(:home)
 end
 
@@ -97,4 +90,9 @@ patch '/store/:id/view' do
   @brands = Brand.all - @store.brands
   @store_brands = @store.brands
   erb(:store)
+end
+
+get '/brand/:id' do
+  @brand = Brand.find(params.fetch("id").to_i())
+  erb(:brand)
 end

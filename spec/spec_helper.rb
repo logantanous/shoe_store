@@ -21,8 +21,8 @@ RSpec.configure do |config|
   config.after(:each) do
     DB.exec('DELETE FROM stores *;')
     DB.exec('DELETE FROM brands *;')
-    DB.exec('DELETE FROM items *;')
-    DB.exec('DELETE FROM brands_items *;')
+    # DB.exec('DELETE FROM items *;')
+    # DB.exec('DELETE FROM brands_items *;')
     DB.exec('DELETE FROM brands_stores *;')
   end
 end

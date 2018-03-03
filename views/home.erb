@@ -30,24 +30,15 @@
 </div>
 <hr>
 <div class="row">
-  <div class="col col-xs-6">
+  <div class="col col-xs-12">
     <h6>Brands</h6>
     <% @brands.each() do |brand| %>
       <div class="row">
         <div class="col-xs-12">
-          <li><a href=""><%= brand.name %></a></li>
+          <li><a href="/brand/<%= brand.id %>"><%= brand.name %></a></li>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="col col-xs-6">
-    <h6>Shoes</h6>
-    <% @shoes.each() do |shoe| %>
-      <div class="row">
-        <div class="col-xs-12">
-          <li><a href=""><%= shoe.name %></a></li>
-        </div>
-      </div>
-    <% end %>
-  </div>
+
 </div>
