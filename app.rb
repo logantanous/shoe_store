@@ -19,7 +19,7 @@ end
 post('/stores')do
   name = params[:title]
   if name != ""
-    @store = Store.find_or_create_by({:name => name.capitalize})
+    @store = Store.find_or_create_by({:name => name})
   end
   @stores = Store.all
   erb(:stores)
@@ -34,7 +34,7 @@ post('/brands')do
   name = params[:title]
   price = params[:price]
   if name != ""
-    @brand = Brand.find_or_create_by({:name => name.capitalize, :price => price})
+    @brand = Brand.find_or_create_by({:name => name, :price => price})
   end
   @brands = Brand.all
   erb(:brands)
