@@ -1,52 +1,14 @@
-label, input,button,textarea,ul,li {
-  display: block;
-}
-
-label, input,button,textarea {
-  margin-bottom: 20px;
-}
-
-.col {
-  border: 1px solid rgb(221, 221, 221);
-}
-
-.row:last-child {
-  border-bottom: 1px solid rgb(221, 221, 221);
-}
-
-.row .col {
-  border-right: 0;
-}
-
-.row .col+.col {
-  border-right: 1px solid rgb(221, 221, 221);
-}
-
 .noborder {
-  border: 0 !important;
-  border-right: 0px;
+  border:none;
+  background:none;
 }
 
-.header {
-  margin-bottom: 15px;
-}
-
-.bold {font-weight: bold}
-
-.col-md-1 {text-align: center}
-
-.inline {display: inline;}
-
-.delete { border:none; }
-
-.navbar1 h3 a {
+form {
   display:inline
 }
 
-.col {}
-
 @media only screen and (max-width: 992px) {
-  .row .col {
+  /* .row .col {
     border-right: 1px solid rgb(221, 221, 221);
-  }
+  } */
 }

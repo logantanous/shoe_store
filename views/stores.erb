@@ -1,7 +1,7 @@
 <% @stores.each() do |store| %>
   <li>
     <form action="/store/<%=store.id%>/view" method="post">
-      <button type="submit"><%= store.name %></button>
+      <button class="noborder" type="submit"><%= store.name %></button>
     </form>
   </li>
 <% end %>
